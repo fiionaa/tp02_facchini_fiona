@@ -8,7 +8,10 @@ import { FooterComponent } from './footer/footer.component';
 import { FormulaireComponent } from './formulaire/formulaire.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormulaireResultComponent } from './formulaire-result/formulaire-result.component';
-import {phoneNumberPipe} from './app.phonenumber.pipe'
+import {phoneNumberPipe} from './app.phonenumber.pipe';
+import { CatalogueComponent } from './catalogue/catalogue.component'
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -17,12 +20,14 @@ import {phoneNumberPipe} from './app.phonenumber.pipe'
     FooterComponent,
     FormulaireComponent,
     FormulaireResultComponent,
-    phoneNumberPipe
+    phoneNumberPipe,
+    CatalogueComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

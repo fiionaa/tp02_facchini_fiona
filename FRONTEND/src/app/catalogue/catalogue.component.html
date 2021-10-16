@@ -1,0 +1,23 @@
+<div>
+    <div>
+        <div>
+            <h6>Catalogue</h6>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Référence</th>
+                    <th>Prix</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let o of products">
+                    <td>{{o.title}}</td>
+                    <td>{{o.reference}}</td>
+                    <td>{{o.price}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

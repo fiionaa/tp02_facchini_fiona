@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  getCatalogue: '/assets/mock/bouchon.json'
+  getCatalogue: '/assets/bouchon.json'
 };
 
 /*
