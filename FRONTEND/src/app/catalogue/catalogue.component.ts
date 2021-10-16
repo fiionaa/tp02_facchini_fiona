@@ -13,10 +13,12 @@ export class CatalogueComponent implements OnInit {
   constructor(private httpservice : HttpServiceService) { 
     this.products = [];
     this.observable$ = new Observable;
+    this.researchInput="";
   }
 
   observable$ : Observable<Product[]>;
   products: Product[];
+  researchInput: string;
 
   ngOnInit(): void {
     this.observable$ = this.httpservice.getCatalogue();   

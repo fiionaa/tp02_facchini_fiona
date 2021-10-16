@@ -11,6 +11,9 @@ import { FormulaireResultComponent } from './formulaire-result/formulaire-result
 import {phoneNumberPipe} from './app.phonenumber.pipe';
 import { CatalogueComponent } from './catalogue/catalogue.component'
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { CatalogueFilterPipe } from './catalogue-filter.pipe';
+
 
 
 @NgModule({
@@ -21,13 +24,15 @@ import { HttpClientModule } from '@angular/common/http';
     FormulaireComponent,
     FormulaireResultComponent,
     phoneNumberPipe,
-    CatalogueComponent
+    CatalogueComponent,
+    CatalogueFilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
