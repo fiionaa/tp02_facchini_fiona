@@ -13,7 +13,8 @@ import { CatalogueComponent } from './catalogue/catalogue.component'
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CatalogueFilterPipe } from './catalogue-filter.pipe';
-
+import { NgxsModule } from '@ngxs/store';
+import { PanierComponent } from './panier/panier.component';
 
 
 @NgModule({
@@ -25,14 +26,16 @@ import { CatalogueFilterPipe } from './catalogue-filter.pipe';
     FormulaireResultComponent,
     phoneNumberPipe,
     CatalogueComponent,
-    CatalogueFilterPipe
+    CatalogueFilterPipe,
+    PanierComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgxsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
