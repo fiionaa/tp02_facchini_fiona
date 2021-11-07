@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {HttpServiceService} from '../services/http-service.service';
 import {Observable} from 'rxjs';
 import { Product } from '../models/product.model';
+import { Store } from '@ngxs/store';
+import { AddProduct } from '../shared/actions/panier.action';
+
 
 @Component({
   selector: 'app-catalogue',
@@ -10,7 +13,7 @@ import { Product } from '../models/product.model';
 })
 export class CatalogueComponent implements OnInit {
 
-  constructor(private httpservice : HttpServiceService) { 
+  constructor(private httpservice : HttpServiceService, private store : Store) { 
     this.products = [];
     this.observable$ = new Observable;
     this.researchInput="";
@@ -23,6 +26,10 @@ export class CatalogueComponent implements OnInit {
   ngOnInit(): void {
     this.observable$ = this.httpservice.getCatalogue();   
     this.observable$.subscribe(item => this.products = item); 
+  }
+
+  addPanier (title: string, reference: string, price: number){
+    this.store.dispatch(new AddProduct({"title": title, "reference": reference, "price": price}));
   }
 
 }
