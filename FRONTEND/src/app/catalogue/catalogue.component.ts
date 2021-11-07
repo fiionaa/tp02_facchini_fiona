@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import { Product } from '../models/product.model';
 import { Store } from '@ngxs/store';
 import { AddProduct } from '../shared/actions/panier.action';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,7 +14,7 @@ import { AddProduct } from '../shared/actions/panier.action';
 })
 export class CatalogueComponent implements OnInit {
 
-  constructor(private httpservice : HttpServiceService, private store : Store) { 
+  constructor(private httpservice : HttpServiceService, private store : Store, private router: Router) { 
     this.products = [];
     this.observable$ = new Observable;
     this.researchInput="";
@@ -30,6 +31,10 @@ export class CatalogueComponent implements OnInit {
 
   addPanier (title: string, reference: string, price: number){
     this.store.dispatch(new AddProduct({"title": title, "reference": reference, "price": price}));
+  }
+
+  redirectDetails(reference: string){
+    this.router.navigate(['/product/detail/',reference]);
   }
 
 }

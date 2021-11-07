@@ -20,12 +20,14 @@ import { Panier } from './models/panier.model';
 import {PanierState} from './shared/states/panier-state';
 import { AdressComponent } from './adress/adress.component';
 import { userAdressesState } from './shared/states/user-adresses-state';
+import { DetailsComponent } from './details/details.component';
 const appRoutes: Routes =[
   {path: '',component: AppComponent},
   {path: 'catalogue', component: CatalogueComponent},
   {path:'form', component: FormulaireComponent},
   {path: 'form/results', component: FormulaireResultComponent},
-  {path:'panier', component: PanierComponent}
+  {path:'panier', component: PanierComponent},
+  {path: 'product/detail/:reference', component: DetailsComponent },
 ];
 @NgModule({
   declarations: [
@@ -38,7 +40,8 @@ const appRoutes: Routes =[
     CatalogueComponent,
     CatalogueFilterPipe,
     PanierComponent,
-    AdressComponent
+    AdressComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
