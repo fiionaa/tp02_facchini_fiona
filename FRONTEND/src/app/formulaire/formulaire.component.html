@@ -9,18 +9,7 @@
     <div *ngIf="firstName?.errors?.required">
         Veuillez saisir un prénom
     </div>
-    <input type="text" formControlName="street" name="street" placeholder="Rue"/>
-    <div *ngIf="street?.errors?.required">
-        Veuillez saisir une rue
-    </div>
-    <input type="number" formControlName="zipCode" name="zipCode" placeholder="Code postal"/>
-    <div *ngIf="zipCode?.errors?.required">
-        Veuillez saisir un code postal
-    </div>
-    <input type="text" formControlName="city" name="city" placeholder="Ville"/>
-    <div *ngIf="city?.errors?.required">
-        Veuillez saisir une ville
-    </div>
+    <app-adress></app-adress>
     <input type="text" formControlName="phone" name="phone" placeholder="Téléphone"/>
     <div *ngIf="phone?.errors?.required">
         Veuillez saisir un numéro de téléphone
@@ -53,10 +42,6 @@
     <input type="text" formControlName="login" name="login" placeholder="Login"/>
     <div *ngIf="login?.errors?.required">
         Veuillez saisir un login
-    </div>
-    <input type="text" formControlName="country" name="country" placeholder="Pays"/>
-    <div *ngIf="country?.errors?.required">
-        Veuillez saisir un pays
     </div>
     <input type="submit" value="Valider" />
 </form>

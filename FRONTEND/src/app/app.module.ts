@@ -18,6 +18,8 @@ import { PanierComponent } from './panier/panier.component';
 import { RouterModule, Routes } from '@angular/router';
 import { Panier } from './models/panier.model';
 import {PanierState} from './shared/states/panier-state';
+import { AdressComponent } from './adress/adress.component';
+import { userAdressesState } from './shared/states/user-adresses-state';
 const appRoutes: Routes =[
   {path: '',component: AppComponent},
   {path: 'catalogue', component: CatalogueComponent},
@@ -35,7 +37,8 @@ const appRoutes: Routes =[
     phoneNumberPipe,
     CatalogueComponent,
     CatalogueFilterPipe,
-    PanierComponent
+    PanierComponent,
+    AdressComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +46,7 @@ const appRoutes: Routes =[
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgxsModule.forRoot ([PanierState]),
+    NgxsModule.forRoot ([PanierState, userAdressesState]),
     RouterModule.forRoot(appRoutes)
   ],
   providers: [],

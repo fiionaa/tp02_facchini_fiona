@@ -1,7 +1,13 @@
 import { NullTemplateVisitor } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
+import { ObservedValuesFromArray } from 'rxjs';
+import { Adress } from '../models/adress.model';
 import { User } from '../models/user.model';
 import { UserService } from '../services/user.service';
+import { Observable } from 'rxjs';
+import { userAdressesState } from '../shared/states/user-adresses-state';
+import { Store } from '@ngxs/store';
+
 
 
 @Component({
@@ -12,19 +18,20 @@ import { UserService } from '../services/user.service';
 export class FormulaireResultComponent implements OnInit {
 
   user: User;
-  constructor(private userService: UserService) { 
+  adresses$ : Observable<Adress[]>;
+  adresses: Adress[];
+  constructor(private userService: UserService, private store: Store) {
+    this.adresses$ = new Observable();
+    this.adresses = []; 
     this.user = new User(
       '',
       '',
-      '',
-      0,
-      '',
-      '',
+      this.adresses,
+      '0',
       '',
       '',
       '',
       '',
-      ''
     )
   }
 
@@ -34,6 +41,8 @@ export class FormulaireResultComponent implements OnInit {
         this.user = user;
       }
     )
+    this.adresses$ = this.store.select(userAdressesState.getAdresses);
+    this.adresses$.subscribe(item => this.adresses = item);
   }
 
 }
