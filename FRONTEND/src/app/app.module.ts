@@ -15,8 +15,16 @@ import { FormsModule } from '@angular/forms';
 import { CatalogueFilterPipe } from './catalogue-filter.pipe';
 import { NgxsModule } from '@ngxs/store';
 import { PanierComponent } from './panier/panier.component';
-
-
+import { RouterModule, Routes } from '@angular/router';
+import { Panier } from './models/panier.model';
+import {PanierState} from './shared/states/panier-state';
+const appRoutes: Routes =[
+  {path: '',component: AppComponent},
+  {path: 'catalogue', component: CatalogueComponent},
+  {path:'form', component: FormulaireComponent},
+  {path: 'form/results', component: FormulaireResultComponent},
+  {path:'panier', component: PanierComponent}
+];
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +43,8 @@ import { PanierComponent } from './panier/panier.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    NgxsModule
+    NgxsModule.forRoot ([PanierState]),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
